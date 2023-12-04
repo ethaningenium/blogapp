@@ -1,36 +1,20 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Project: Next.js Blog Application with PlanetScale, Prisma, MySQL, Zustand, and Tailwind CSS
 
-## Getting Started
+## Description
+This project is a full-fledged blog application created for learning and showcasing the capabilities of Next.js, PlanetScale, Prisma, MySQL, Zustand, and Tailwind CSS. The project covers both the frontend and backend, providing an example of modern full-stack development.
 
-First, run the development server:
+## Technologies
+1. **Next.js:** The project utilizes Next.js to build a powerful and efficient frontend. This enables the creation of fast and scalable web applications using modern technologies such as server-side rendering and static site generation.
+2. **PlanetScale:** PlanetScale is used as the database solution, providing horizontal scalability and high data availability. This allows for easy scaling of the application as data grows.
+3. **Prisma:** Prisma is used for database interactions in the backend, providing a convenient and type-safe way to interact with the database using TypeScript.
+4. **MySQL:** MySQL serves as the data store, ensuring the reliability and power of a relational database.
+5. **Zustand:** Zustand is chosen for frontend state management, offering simplicity and efficiency in managing component state.
+6. **Tailwind CSS:** Frontend styling is implemented using Tailwind CSS, providing fast and flexible styling of components.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Functionality
+- Create, edit, and delete blog posts.
+- User authentication and authorization.
+- Display a list of blog posts with pagination.
+- Use PlanetScale to ensure the scalability and fault tolerance of the database.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+This project is designed not only to demonstrate the fundamental principles of working with the mentioned technologies but also to serve as an example of architectural solutions for a real-world web application.
