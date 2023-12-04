@@ -1,9 +1,13 @@
 'use client';
 
 export const setToken = (token: string) => {
-  window.localStorage.setItem('token', token);
+  if (typeof window !== 'undefined') {
+    window.localStorage.setItem('token', token);
+  }
 };
 
 export const getToken = () => {
-  return window.localStorage.getItem('token');
+  if (typeof window !== 'undefined') {
+    return window.localStorage.getItem('token');
+  }
 };
