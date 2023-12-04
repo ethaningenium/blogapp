@@ -5,6 +5,7 @@ import axios from 'axios';
 import Image from 'next/image';
 import { isImageURL } from '@/libs/IsImage';
 import { formatDate } from '@/libs/formatDate';
+import { getToken } from '@/libs/TokenSetnGet';
 
 export type PostType = {
   id: number;
@@ -73,47 +74,47 @@ const SinglePost: React.FC<{ post: PostType }> = ({ post }) => {
   );
 };
 
-// const Allposts = () => {
-//   const [posts, setPosts] = useState<PostType[]>();
-//   useEffect(() => {
-//     console.log('rendered');
-//     async function getPosts() {
-//       const { data } = await axios.get('/api/posts');
-//       setPosts(data);
-//     }
-//     getPosts();
-//   }, []);
+const Allposts = () => {
+  const [posts, setPosts] = useState<PostType[]>();
+  useEffect(() => {
+    console.log('rendered');
+    async function getPosts() {
+      const { data } = await axios.get('/api/posts');
+      setPosts(data);
+    }
+    getPosts();
+  }, []);
 
-//   return (
-//     <div className="flex mt-8 flex-wrap gap-8">
-//       {posts?.map((post) => {
-//         return <SinglePost key={post.id} post={post} />;
-//       })}
-//     </div>
-//   );
-// };
-// const MyPosts = () => {
-//   const token = getToken();
-//   const [posts, setPosts] = useState<PostType[]>();
-//   useEffect(() => {
-//     console.log('rendered');
-//     async function getPosts() {
-//       const { data } = await axios.post('/api/posts/mypost', {
-//         token: token,
-//       });
-//       setPosts(data);
-//     }
-//     getPosts();
-//   }, [token]);
+  return (
+    <div className="flex mt-8 flex-wrap gap-8">
+      {posts?.map((post) => {
+        return <SinglePost key={post.id} post={post} />;
+      })}
+    </div>
+  );
+};
+const MyPosts = () => {
+  const token = getToken();
+  const [posts, setPosts] = useState<PostType[]>();
+  useEffect(() => {
+    console.log('rendered');
+    async function getPosts() {
+      const { data } = await axios.post('/api/posts/mypost', {
+        token: token,
+      });
+      setPosts(data);
+    }
+    getPosts();
+  }, [token]);
 
-//   return (
-//     <div className="flex mt-8 flex-wrap gap-8">
-//       {posts?.map((post) => {
-//         return <SinglePost key={post.id} post={post} />;
-//       })}
-//     </div>
-//   );
-// };
+  return (
+    <div className="flex mt-8 flex-wrap gap-8">
+      {posts?.map((post) => {
+        return <SinglePost key={post.id} post={post} />;
+      })}
+    </div>
+  );
+};
 
 const Comment: React.FC<{ comment: CommentType }> = ({ comment }) => {
   return (
@@ -127,28 +128,28 @@ const Comment: React.FC<{ comment: CommentType }> = ({ comment }) => {
   );
 };
 
-// const CommentsBlock = () => {
-//   const token = getToken();
-//   const [comments, setComments] = useState<CommentType[]>();
-//   useEffect(() => {
-//     async function getPosts() {
-//       const { data } = await axios.post('/api/comments', {
-//         token: token,
-//       });
-//       setComments(data);
-//     }
-//     getPosts();
-//   }, [token]);
-//   return (
-//     <div className="w-1/3 bg-gray-100 h-screen rounded-2xl p-8 flex flex-col gap-4">
-//       <span className="text-2xl font-medium text-zinc-800">Комменты к моих постов</span>
+const CommentsBlock = () => {
+  const token = getToken();
+  const [comments, setComments] = useState<CommentType[]>();
+  useEffect(() => {
+    async function getPosts() {
+      const { data } = await axios.post('/api/comments', {
+        token: token,
+      });
+      setComments(data);
+    }
+    getPosts();
+  }, [token]);
+  return (
+    <div className="w-1/3 bg-gray-100 h-screen rounded-2xl p-8 flex flex-col gap-4">
+      <span className="text-2xl font-medium text-zinc-800">Комменты к моих постов</span>
 
-//       {comments?.map((comment) => {
-//         return <Comment key={comment.id} comment={comment} />;
-//       })}
-//     </div>
-//   );
-// };
+      {comments?.map((comment) => {
+        return <Comment key={comment.id} comment={comment} />;
+      })}
+    </div>
+  );
+};
 
 const MainBlock = () => {
   const [isAllPosts, setIsAllPosts] = useState(true);
@@ -175,9 +176,9 @@ const MainBlock = () => {
             Мои посты
           </span>
         </div>
-        {/* {isAllPosts ? <Allposts /> : <MyPosts />} */}
+        {isAllPosts ? <Allposts /> : <MyPosts />}
       </div>
-      {/* <CommentsBlock /> */}
+      <CommentsBlock />
     </section>
   );
 };
